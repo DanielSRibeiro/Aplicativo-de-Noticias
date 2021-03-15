@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.news.R;
-import com.example.news.model.Noticias;
-import com.example.news.model.NoticiasModel;
+import com.example.news.data.model.Noticias;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

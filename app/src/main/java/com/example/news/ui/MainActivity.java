@@ -4,22 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.news.R;
-import com.example.news.model.Noticias;
-import com.example.news.model.NoticiasModel;
-import com.example.news.model.ApiClient;
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.news.data.model.Noticias;
+import com.example.news.data.model.NoticiasModel;
+import com.example.news.data.model.ApiClient;
 
 import java.util.ArrayList;
 
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 progressBar.setVisibility(View.VISIBLE);
 
                 if (!(s.length() < 1)){
@@ -65,6 +66,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        recyclerViewNoticia.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerViewNoticia,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Noticias noticias = arrayList.get(position);
+
+                        chamaUrl(noticias.getUrl());
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                }));
+    }
+
+    private void chamaUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
     private void initView() {
