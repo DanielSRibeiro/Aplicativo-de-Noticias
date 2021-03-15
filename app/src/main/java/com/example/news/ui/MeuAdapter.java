@@ -12,14 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.news.R;
 import com.example.news.model.Noticias;
 import com.example.news.model.NoticiasModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
 
-    ArrayList<NoticiasModel> arrayList;
+    ArrayList<Noticias> arrayList;
 
-    public MeuAdapter(ArrayList<NoticiasModel> arrayList) {
+    public MeuAdapter(ArrayList<Noticias> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -33,14 +34,14 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MeuViewHolder holder, int position) {
 
-        NoticiasModel arrayLists = arrayList.get(position);
+        Noticias a = arrayList.get(position);
 
-        holder.textViewTitulo.setText(arrayLists.getArticles().get(position).getTitle());
-        holder.textViewAutor.setText(arrayLists.getArticles().get(position).getAuthor());
-        holder.textViewDescricao.setText(arrayLists.getArticles().get(position).getDescription());
-        holder.textViewData.setText(arrayLists.getArticles().get(position).getPublishedAt());
+        holder.textViewTitulo.setText(a.getTitle());
+        holder.textViewAutor.setText(a.getSource().getName());
+        holder.textViewDescricao.setText(a.getDescription());
+        holder.textViewData.setText(a.getPublishedAt());
 
-//        Picasso.get().load(arrayListDtoNews.get(position).getUrlToImage()).into(holder.img);
+        Picasso.get().load(a.getUrlToImage()).into(holder.img);
 
     }
 
