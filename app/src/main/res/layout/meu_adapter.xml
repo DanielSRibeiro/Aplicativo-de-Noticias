@@ -28,9 +28,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/imageAdapterHome"
-            android:layout_alignBottom="@+id/imageAdapterHome"
+            android:layout_alignTop="@+id/imageAdapterHome"
             android:layout_margin="8dp"
-            android:text="Titulo"
+            android:text="@string/titulo"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageAdapterHome"
-            >
+            android:paddingVertical="4dp">
 
             <TextView
                 android:id="@+id/textViewData"
@@ -48,8 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="8dp"
-                android:layoutDirection="inherit"
-                android:text="Data"
+                android:text="@string/data"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,18 +56,15 @@
 
             <TextView
                 android:id="@+id/textViewAutor"
+                android:layout_marginLeft="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignRight="@id/textViewData"
-                android:layout_alignBottom="@+id/textViewData"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="8dp"
                 android:layout_weight="2"
                 android:inputType="textCapWords"
-                android:text="Autor"
+                android:text="@string/autor"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textViewData"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -83,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linha"
             android:layout_margin="8dp"
-            android:text="Descrição"
+            android:text="@string/descri_o"
             android:textSize="18sp"
             android:id="@+id/textViewDescricao"/>
     </RelativeLayout>

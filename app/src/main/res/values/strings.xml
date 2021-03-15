@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">News</string>
+    <string name="news">News</string>
+    <string name="titulo">Titulo</string>
+    <string name="data">Data</string>
+    <string name="autor">Autor</string>
+    <string name="descri_o">Descrição</string>
+    <string name="buscar_nome">Buscar pelo Nome</string>
 </resources>

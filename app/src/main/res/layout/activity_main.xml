@@ -4,32 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_gray"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.MainActivity"
-    android:background="@color/light_gray">
+    tools:context=".ui.MainActivity">
 
     <TextView
+        android:id="@+id/textViewQualquer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewQualquer"
-        android:text="News"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="@string/news"
+        android:textColor="@color/primaryDarkColor"
         android:textSize="24dp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="8dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear"
+        android:layout_marginVertical="8dp"
+        android:layout_below="@+id/textViewQualquer"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editTextBuscar"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/buscar_nome"
+            android:gravity="center_horizontal"/>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/buttonBuscar"
+            android:background="@drawable/ic_baseline_search_24"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewQualquer"/>
+        android:layout_below="@+id/linear" />
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/progressBar"/>
+        android:id="@+id/progressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

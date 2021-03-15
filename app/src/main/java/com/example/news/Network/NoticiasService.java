@@ -13,4 +13,7 @@ public interface NoticiasService {
 
     @GET("top-headlines")
     Call<NoticiasModel> getNews(@Query("apiKey") String key, @Query("country") String pais);
+
+    @GET("everything")
+    Call<NoticiasModel> getNewsPortuguese(@Query("q") String q, @Query("apiKey") String key, @Query("language") String pt);
 }
