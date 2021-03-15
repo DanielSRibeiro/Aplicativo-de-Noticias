@@ -56,11 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                progressBar.setVisibility(View.VISIBLE);
+
                 if (!(s.length() < 1)){
-                    progressBar.setVisibility(View.VISIBLE);
                     chamandoNoticiasPortugues(editTextBuscar.getText().toString());
                 } else{
-                    editTextBuscar.setError("É Necessário Escrever algo!!!");
+                    chamandoNoticias();
                 }
             }
         });

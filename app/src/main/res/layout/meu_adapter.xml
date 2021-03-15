@@ -28,11 +28,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/imageAdapterHome"
-            android:layout_alignTop="@+id/imageAdapterHome"
+            android:layout_alignBottom="@+id/imageAdapterHome"
             android:layout_margin="8dp"
             android:text="@string/titulo"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
