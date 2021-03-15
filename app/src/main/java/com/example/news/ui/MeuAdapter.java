@@ -1,4 +1,4 @@
-package com.example.news.ui.adapter;
+package com.example.news.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.news.R;
-import com.example.news.model.New;
+import com.example.news.model.Noticias;
+import com.example.news.model.NoticiasModel;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MeuViewHolder> {
+public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
 
-    ArrayList<New> arrayListNews;
+    ArrayList<NoticiasModel> arrayList;
 
-    public Adapter(ArrayList<New> arrayListNews) {
-        this.arrayListNews = arrayListNews;
+    public MeuAdapter(ArrayList<NoticiasModel> arrayList) {
+        this.arrayList = arrayList;
     }
 
     @NonNull
@@ -31,16 +32,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MeuViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MeuViewHolder holder, int position) {
-        holder.textViewTitulo.setText(arrayListNews.get(position).getTitle());
-        holder.textViewAutor.setText(arrayListNews.get(position).getAuthor());
-        holder.textViewDescricao.setText(arrayListNews.get(position).getDescription());
-        holder.textViewData.setText(arrayListNews.get(position).getPublishedAt());
-        holder.img.setImageBitmap(arrayListNews.get(position).getUrlToImage());
+
+        NoticiasModel arrayLists = arrayList.get(position);
+
+        holder.textViewTitulo.setText(arrayLists.getArticles().get(position).getTitle());
+        holder.textViewAutor.setText(arrayLists.getArticles().get(position).getAuthor());
+        holder.textViewDescricao.setText(arrayLists.getArticles().get(position).getDescription());
+        holder.textViewData.setText(arrayLists.getArticles().get(position).getPublishedAt());
+
+//        Picasso.get().load(arrayListDtoNews.get(position).getUrlToImage()).into(holder.img);
+
     }
 
     @Override
     public int getItemCount() {
-        return arrayListNews.size();
+        return arrayList.size();
     }
 
     class MeuViewHolder extends RecyclerView.ViewHolder{
