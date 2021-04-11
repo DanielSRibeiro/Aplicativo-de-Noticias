@@ -1,6 +1,6 @@
-package com.example.news.data.model;
+package com.example.news.data.network;
 
-import com.example.news.data.Network.NoticiasService;
+import com.example.news.data.network.NoticiasService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -19,7 +18,8 @@ import android.widget.Toast;
 import com.example.news.R;
 import com.example.news.data.model.Noticias;
 import com.example.news.data.model.NoticiasModel;
-import com.example.news.data.model.ApiClient;
+import com.example.news.data.network.ApiClient;
+import com.example.news.ui.adapter.MeuAdapter;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MeuAdapter.OnNoteListener {
 
     RecyclerView recyclerViewNoticia;
     ProgressBar progressBar;
@@ -66,26 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        recyclerViewNoticia.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerViewNoticia,
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-
-                    }
-
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-                        Noticias noticias = arrayList.get(position);
-
-                        chamaUrl(noticias.getUrl());
-                    }
-
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                    }
-                }));
     }
 
     private void chamaUrl(String s) {
@@ -150,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
     private void chamaAdapter(ArrayList<Noticias> arrayList) {
         recyclerViewNoticia.setLayoutManager(new LinearLayoutManager(this));
         progressBar.setVisibility(View.INVISIBLE);
-        recyclerViewNoticia.setAdapter(new MeuAdapter(arrayList));
+        recyclerViewNoticia.setAdapter(new MeuAdapter(arrayList, this));
+    }
+
+    @Override
+    public void onClickNew(int posicao) {
+        Noticias noticias = arrayList.get(posicao);
+
+        chamaUrl(noticias.getUrl());
     }
 }

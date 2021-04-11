@@ -1,4 +1,4 @@
-package com.example.news.data.Network;
+package com.example.news.data.network;
 
 import com.example.news.data.model.NoticiasModel;
 

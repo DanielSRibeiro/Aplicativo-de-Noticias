@@ -1,4 +1,4 @@
-package com.example.news.ui;
+package com.example.news.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +17,19 @@ import java.util.ArrayList;
 
 public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
 
-    ArrayList<Noticias> arrayList;
+    private ArrayList<Noticias> arrayList;
+    private OnNoteListener mOnNoteListener;
 
-    public MeuAdapter(ArrayList<Noticias> arrayList) {
+    public MeuAdapter(ArrayList<Noticias> arrayList, OnNoteListener onNoteListener) {
         this.arrayList = arrayList;
+        this.mOnNoteListener = onNoteListener;
     }
 
     @NonNull
     @Override
     public MeuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meu_adapter, parent, false);
-        return new MeuViewHolder(view);
+        return new MeuViewHolder(view, mOnNoteListener);
     }
 
     @Override
@@ -49,12 +51,13 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
         return arrayList.size();
     }
 
-    class MeuViewHolder extends RecyclerView.ViewHolder{
-
+    class MeuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textViewTitulo, textViewAutor,textViewData,textViewDescricao;
         ImageView img;
 
-        public MeuViewHolder(@NonNull View itemView) {
+        OnNoteListener onNoteListener;
+
+        public MeuViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
             super(itemView);
 
             textViewAutor = itemView.findViewById(R.id.textViewAutor);
@@ -62,6 +65,19 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MeuViewHolder> {
             textViewData = itemView.findViewById(R.id.textViewData);
             textViewDescricao = itemView.findViewById(R.id.textViewDescricao);
             img = itemView.findViewById(R.id.imageAdapterHome);
+
+            this.onNoteListener = onNoteListener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.onClickNew(getAdapterPosition());
+        }
+    }
+
+    public interface OnNoteListener{
+        void onClickNew(int posicao);
     }
 }
