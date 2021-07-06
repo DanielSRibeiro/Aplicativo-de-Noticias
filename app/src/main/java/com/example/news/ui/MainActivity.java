@@ -19,7 +19,6 @@ import com.example.news.R;
 import com.example.news.data.model.Noticias;
 import com.example.news.data.model.NoticiasModel;
 import com.example.news.data.network.ApiClient;
-import com.example.news.ui.adapter.MeuAdapter;
 
 import java.util.ArrayList;
 
