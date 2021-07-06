@@ -2,21 +2,18 @@
 
 Aplicativo que consume uma API de noticias, mostrando sempre as novas noticias sobre o Brasil e o mundo.
 
-### Tecnologias utilizadas:
+## Tecnologias utilizadas:
 
 - [x] Java
 - [x] Retrofit
 - [x] Picasso
 
-### Screenshot
+## Screenshot
 
-#### Home
+### Home
 
 <img src="img/home.gif" width="250" />
 
-#### Buscar
+### Buscar
 
 <img src="img/buscar.gif" width="250" />
-
-
-
