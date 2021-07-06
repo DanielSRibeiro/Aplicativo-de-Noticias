@@ -17,3 +17,5 @@ Aplicativo que consume uma API de noticias, mostrando sempre as novas noticias s
 ### Buscar
 
 <img src="img/buscar.gif" width="250" />
+
+### API - https://newsapi.org/
